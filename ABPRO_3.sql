@@ -44,7 +44,9 @@ UPDATE capacitacion
 SET dia = '2020-01-01', hora = '00:00:00' 
 WHERE dia IS NULL AND hora IS NULL;
 
-DELETE FROM capacitacion WHERE cantidadAsistentes = 0 ;
+DELETE FROM capacitacion WHERE cantidadAsistentes = 0 
+AND idcapacitacion NOT IN (SELECT DISTINCT FK_Capacitacion FROM asistentes);
+
 
 
 
